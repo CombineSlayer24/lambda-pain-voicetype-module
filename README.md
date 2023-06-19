@@ -12,3 +12,11 @@ Adds 2 convars:
   
 - lambdaplayers_voice_painsnds_interrupt
   - Should the lambdaplayer play a pain sound while talking?
+  
+Sound Sources:
+- Crackdown 2
+- Half-Life 2
+- Left 4 Dead 2
+- True Crime: New York City
+- Max Payne 3
+- Advanced Hurt Sounds 3 (Funny edition)
