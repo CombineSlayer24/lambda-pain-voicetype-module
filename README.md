@@ -1,5 +1,7 @@
 # Lambda Pain Voicetype Module
-A module that adds a new voicetype (pain). Plays whenever a lambdaplayer gets damaged
+A module that adds a new voicetype (pain). Plays whenever a lambdaplayer gets damaged.
+
+Has 309 default pain voices.
 
 ### Voice Types
 This module adds one new Voice Types:
@@ -18,5 +20,9 @@ Sound Sources:
 - Half-Life 2
 - Left 4 Dead 2
 - True Crime: New York City
+- Max Payne 1
+- Max Payne 2
 - Max Payne 3
+- Kitty0706
 - Advanced Hurt Sounds 3 (Funny edition)
+- Advanced Hurt Sounds 3 (Serious edition)
