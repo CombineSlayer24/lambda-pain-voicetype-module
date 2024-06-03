@@ -7,9 +7,7 @@ local CurTime = CurTime
 local painsndsEnabled  = CreateLambdaConvar( "lambdaplayers_voice_painsnds_enable", 1, true, false, false, "Enables pain sounds to be played by Lambdas.", 0, 1, { name = "Enable Pain Sounds", type = "Bool", category = "Voice Options" } )
 local painsndsInterrupt  = CreateLambdaConvar( "lambdaplayers_voice_painsnds_interrupt", 0, true, false, false, "Should pain sounds play while speaking?.", 0, 1, { name = "Enable voice interruption", type = "Bool", category = "Voice Options" } )
 
---if ( CLIENT ) then return end
-
-local function Initialize( self )
+local function LambdaOnInitialize( self )
 	-- Init delay sound timer
 	self.l_randompainline = 0
 
@@ -26,19 +24,11 @@ local function Initialize( self )
 			elseif random( 1, 100 ) <= self:GetVoiceChance() and painsndsInterrupt:GetBool() then
 				self:PlaySoundFile( self:GetVoiceLine( "pain" ) )
 			end
-			
-			-- set delay to avoid spam
-			if !painsndsInterrupt:GetBool() then
-				self.l_randompainline = CurTime() + rand( 0.8, 1.6 )
-			else
-				self.l_randompainline = CurTime() + rand( 1.1, 2.5 )
-			end
-			
-			--for _,v in ipairs(player.GetAll()) do
-			--	v:ChatPrint("Pain Sound Played.")
-			--end
+	
+			-- Set delay to avoid spam, longer if interrupting speech
+			self.l_randompainline = CurTime() + ( painsndsInterrupt:GetBool() and rand( 1.1, 2.5 ) or rand( 0.8, 1.6 ) )
 		end
 	end)
 end
 
-hook.Add( "LambdaOnInitialize", "lambdapainsnds_init", Initialize )
+hook.Add( "LambdaOnInitialize", "lambdapainsnds_init", LambdaOnInitialize )
